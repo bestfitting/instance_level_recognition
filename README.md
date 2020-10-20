@@ -1,6 +1,6 @@
 # Instance Level Recognition
 
-This repository contains the code for the 2nd place solution to the 2020 edition of the Google Landmark Recognition competition hosted on Kaggle: 
+This repository contains the code for the 2nd place solution to the 2020 edition of the Landmark Recognition competition hosted by Google on Kaggle: 
 
 https://www.kaggle.com/c/landmark-recognition-2020/leaderboard
 
