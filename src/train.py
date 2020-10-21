@@ -59,6 +59,8 @@ def main():
 
   # set cuda visible device
   os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu_id
+  if args.distributed:
+    torch.cuda.set_device(args.local_rank)
 
   # set random seeds
   torch.manual_seed(0)
@@ -144,8 +146,8 @@ def main():
     data_type='valid',
   )
   if args.distributed:
-    train_sampler = dist.DistributedSampler(train_dataset)
-    valid_sampler = dist.DistributedSampler(valid_dataset)
+    train_sampler = torch.utils.data.distributed.DistributedSampler(train_dataset)
+    valid_sampler = torch.utils.data.distributed.DistributedSampler(valid_dataset)
   else:
     train_sampler = RandomSampler(train_dataset)
     valid_sampler = SequentialSampler(valid_dataset)
